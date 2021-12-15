@@ -24,9 +24,8 @@ namespace Demo.Project.IDS4Service
             var idsTokenUrl = _configuration.GetSection("AuthServer:Authority").Value;
             //ids4访问
             var AppClientID = _configuration.GetSection("AuthServer:AppClientID").Value;
-
+            //访问密码
             var AppClientService = _configuration.GetSection("AuthServer:AppClientService").Value;
-
             var disco = client.GetDiscoveryDocumentAsync(idsTokenUrl);
             var tokenResponse = await client.RequestPasswordTokenAsync(new PasswordTokenRequest
             {
@@ -38,7 +37,7 @@ namespace Demo.Project.IDS4Service
             }) ;
             if(tokenResponse.IsError)
             {
-                return "123456789987654321"; //string.Empty;
+                return string.Empty;
             }
             return tokenResponse.AccessToken;
         }
