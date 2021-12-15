@@ -12,6 +12,11 @@ namespace Demo.Project.MyInterface
     public interface ILogin : ICrudAppService<LoginDto, Guid, 
         PagedAndSortedResultRequestDto, CreateUpdateGoodsDto>
     {
+
+
+
+
+
         Task<string> Login(LoginDto loginDto);
     }
 }
